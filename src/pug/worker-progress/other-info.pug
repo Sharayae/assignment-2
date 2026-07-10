@@ -1,0 +1,7 @@
+include ../mixins/form-controls.pug
+
+//- locals: otherInfo
+section.section-box
+  +sectionTitle('Other Information')
+  +fieldBox('I would like to provide the following additional information about my claim/injury:')
+    +readonlyTextarea(otherInfo)

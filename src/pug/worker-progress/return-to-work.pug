@@ -1,0 +1,45 @@
+include ../mixins/form-controls.pug
+
+//- locals: rtw = { status, returnedOnDate, workingMode, other, goingComment,
+//-                 expectedReturnDate, concerns, contactName, contactDate }
+section.section-box
+  +sectionTitle('Return to Work')
+
+  +fieldBox('Select one:')
+    +optionLine([
+      { text: 'I have not missed time from work', checked: rtw.status === 'notMissed' },
+      { text: 'I have not returned to work', checked: rtw.status === 'notReturned' },
+      { text: 'I returned to work on:', checked: rtw.status === 'returnedOn', note: rtw.status === 'returnedOn' ? rtw.returnedOnDate : null }
+    ])
+
+  +fieldBox('I am working:')
+    +optionLine([
+      { text: 'Full duties, regular hours', checked: rtw.workingMode === 'fullRegular' },
+      { text: 'Full duties, reduced hours', checked: rtw.workingMode === 'fullReduced' }
+    ])
+    +optionLine([
+      { text: 'Modified duties, regular hours', checked: rtw.workingMode === 'modifiedRegular' },
+      { text: 'Modified duties, reduced hours', checked: rtw.workingMode === 'modifiedReduced' }
+    ])
+
+  if rtw.other
+    +fieldBox('Other:')
+      +readonlyLine(rtw.other)
+
+  +fieldBox('My return to work is going:')
+    +readonlyTextarea(rtw.goingComment)
+
+  +fieldBox('I expect to return to work on:')
+    +inlineField(rtw.expectedReturnDate, 'Date')
+
+  +fieldBox('I have the following concerns about returning to work:')
+    +readonlyTextarea(rtw.concerns)
+
+  +fieldBox('I was most recently in contact with:')
+    .inline-field
+      span.value-underline= rtw.contactName || '—'
+      span.field-caption on
+      span.value-underline= rtw.contactDate || '—'
+    .sublabels
+      span (Name of employer contact)
+      span (Date)

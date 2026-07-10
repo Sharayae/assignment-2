@@ -1,0 +1,16 @@
+//- locals: declarations = { certifyTrue, privacyAcknowledged }
+.declaration-section
+  .declaration-box
+    label.declaration
+      input(type="checkbox", checked=declarations.certifyTrue, disabled=true, tabindex="-1")
+      span I certify that the information given on this form is true, correct and complete to the best of my knowledge. I agree to notify the Workers Compensation Board of Manitoba (WCB) immediately once I become aware of any change in my circumstances. I understand that it is an offence to withhold information from WCB which affects my entitlement to compensation (e.g., full or partial recovery from injury, ability to return to work, sources of additional income, etc.). I understand that refusing to co-operate with, or follow, my treatment plan may result in the WCB reducing or suspending my benefits.
+
+  .declaration-box
+    label.declaration
+      input(type="checkbox", checked=declarations.privacyAcknowledged, disabled=true, tabindex="-1")
+      span
+        | I understand that the
+        |
+        a.link(href="#") Privacy Notice
+        |
+        | applies to the personal information collected in this document.

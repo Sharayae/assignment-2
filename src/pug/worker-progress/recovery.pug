@@ -1,0 +1,14 @@
+include ../mixins/form-controls.pug
+
+//- locals: recovery = { status, comments }
+section.section-box
+  +sectionTitle('Recovery')
+
+  +fieldBox('Select one:')
+    +optionLine([
+      { text: 'I have not fully recovered from my workplace injury.', checked: recovery.status === 'notRecovered' },
+      { text: 'I have fully recovered from my workplace injury.', checked: recovery.status === 'fullyRecovered' }
+    ])
+
+  +fieldBox('I have provided the following comments about my recovery:')
+    +readonlyTextarea(recovery.comments)

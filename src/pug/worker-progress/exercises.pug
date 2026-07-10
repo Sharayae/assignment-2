@@ -1,0 +1,12 @@
+include ../mixins/form-controls.pug
+
+//- locals: exercises = { status, list }
+section.section-box
+  +fieldBox('Select one:')
+    +optionLine([
+      { text: 'I am not doing home exercises for my workplace injury.', checked: exercises.status === 'notDoing' },
+      { text: 'I am doing home exercises for my workplace injury.', checked: exercises.status === 'doing' }
+    ])
+
+  +fieldBox('List the exercises you are doing:')
+    +readonlyTextarea(exercises.list)

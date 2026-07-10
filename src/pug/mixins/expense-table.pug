@@ -1,0 +1,29 @@
+//-
+  Reusable table atoms for the Medical & Travel Expense categories. All six
+  categories (prescriptions, OTC drugs, supplies, parking, mileage,
+  bus/taxi) share the same shape - a column schema plus rows of values - so
+  the header and each row are built from the same two mixins regardless of
+  how many columns a given category has. A header and its rows are rendered
+  as separate <table> elements (sharing an identical <colgroup>) so the
+  pagination engine can split a long table row-by-row across pages while
+  keeping columns pixel-aligned and repeating the header on the new page.
+
+mixin categoryHeader(columns)
+  table.data-table
+    colgroup
+      each col in columns
+        col(style=`width:${col.width}%`)
+    thead
+      tr
+        each col in columns
+          th= col.label
+
+mixin categoryRow(columns, values)
+  table.data-table.data-table--row
+    colgroup
+      each col in columns
+        col(style=`width:${col.width}%`)
+    tbody
+      tr
+        each val in values
+          td= val || '—'

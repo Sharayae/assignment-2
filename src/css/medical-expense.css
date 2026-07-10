@@ -1,0 +1,28 @@
+/* Styles specific to the Medical & Travel Expense Request's table layout.
+   Page shell, header and footer live in shared.css. */
+
+.worker-info { font-size: 11px; margin-bottom: 16px; }
+
+.section-heading { font-size: 12px; font-weight: bold; margin: 14px 0 6px; }
+.expense-note { font-size: 10px; margin-bottom: 6px; color: #333; }
+
+.data-table { width: 100%; border-collapse: collapse; font-size: 10px; border: 1px solid #000; }
+.data-table th { padding: 6px 4px; text-align: left; font-weight: bold; border: 1px solid #000; background: #fff; }
+.data-table td { padding: 6px 4px; border: 1px solid #000; vertical-align: middle; }
+.data-table--row { margin-top: -1px; }
+
+.total-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f5f5;
+  border: 1px solid #000;
+  padding: 10px 12px;
+  margin: 14px 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.privacy-section { margin-top: 16px; padding-top: 14px; border-top: 1px solid #000; }
+.checkbox-container { display: flex; gap: 8px; align-items: flex-start; font-size: 11px; }
+.checkbox-container input[type="checkbox"] { margin-top: 2px; flex-shrink: 0; }

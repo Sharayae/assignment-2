@@ -1,0 +1,8 @@
+include ../mixins/expense-table.pug
+
+//- locals: title, note, columns
+div
+  h2.section-heading= title
+  if note
+    p.expense-note= note
+  +categoryHeader(columns)

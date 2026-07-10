@@ -1,0 +1,3 @@
+node_modules/
+.verify-shots/
+npm-debug.log*

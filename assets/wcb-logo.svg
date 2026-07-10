@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 100">
+  <text x="10" y="45" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold" fill="#003366">WCB</text>
+  <circle cx="85" cy="30" r="7" fill="#003366"/>
+  <circle cx="105" cy="30" r="7" fill="#003366"/>
+  <path d="M 80 45 Q 80 55 95 60 Q 110 55 110 45" fill="none" stroke="#003366" stroke-width="2"/>
+  <text x="10" y="75" font-family="Arial, Helvetica, sans-serif" font-size="7" fill="#003366" font-weight="bold">Workers Compensation</text>
+  <text x="15" y="83" font-family="Arial, Helvetica, sans-serif" font-size="7" fill="#003366" font-weight="bold">Board of Manitoba</text>
+</svg>

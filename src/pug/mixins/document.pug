@@ -1,0 +1,30 @@
+//-
+  Shared page chrome for every WCB document in this project.
+  Both the Worker Progress Report and the Medical & Travel Expense Request
+  use the exact same header/footer shape, so it lives here once instead of
+  being duplicated per form. A branding change (address, phone number, logo)
+  only ever needs to happen in this one file.
+
+mixin docHeader(title, claimNo, badgeText)
+  header.doc-header
+    .brand
+      img.brand-logo(src="../assets/wcb-logo.svg", alt="Workers Compensation Board of Manitoba")
+      .brand-address
+        div 333 Broadway
+        div Winnipeg, MB R3C 4W3
+        div Phone: 204-954-4321
+        div Toll Free: 1-855-954-4321
+        div www.wcb.mb.ca
+    .brand-title
+      h1= title
+      .badge-row
+        span.badge Claim No. #{claimNo}
+        if badgeText
+          span.badge= badgeText
+
+mixin docFooter(workerAppId, submittedDate, submittedTime, pageIndex, totalPages)
+  footer.doc-footer
+    span.footer-id Worker App ID: #{workerAppId}
+    .footer-right
+      span.footer-submitted Submitted: #{submittedDate} #{submittedTime}
+      span.footer-page Page #{pageIndex} of #{totalPages}

@@ -1,0 +1,40 @@
+//-
+  Reusable "box" atoms for the checkbox-and-textarea style Worker Progress
+  Report. Every value below is rendered read-only: this page only ever
+  displays data that was simulated as coming from the backend, it is never
+  collected on screen (per assignment requirement #3).
+
+mixin sectionTitle(text)
+  h2.section-title= text
+
+mixin fieldBox(label)
+  .box
+    if label
+      p.box-label= label
+    block
+
+mixin optionLine(options)
+  //- options: [{ text, checked, note }] - `note` renders an inline
+  //- read-only value next to the option, e.g. "returned to work on: <date>".
+  .checkbox-line
+    each opt in options
+      label.option
+        input(type="checkbox", checked=opt.checked, disabled=true, tabindex="-1")
+        span= opt.text
+        if opt.note
+          span.note-value= opt.note
+
+mixin readonlyLine(value)
+  p.readonly-line= value || '—'
+
+mixin readonlyTextarea(value)
+  //- A real <textarea> has a fixed visible height regardless of content,
+  //- which would defeat data-driven pagination (a long comment needs to
+  //- actually grow the block so it can push content onto a new page). A
+  //- plain block element with pre-wrap sizes itself to its text instead.
+  .field-textbox= value || '—'
+
+mixin inlineField(value, caption)
+  .inline-field
+    span.value-underline= value || '—'
+    span.field-caption= caption

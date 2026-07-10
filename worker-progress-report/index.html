@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worker Progress Report</title>
+  <link rel="stylesheet" href="../src/css/shared.css" />
+  <link rel="stylesheet" href="../src/css/worker-progress.css" />
+</head>
+<body>
+  <div class="toolbar no-print">
+    <div class="toolbar-left">
+      <a class="back-link" href="../index.html">&larr; All forms</a>
+      <label for="datasetSelect">Simulated backend record:</label>
+      <select id="datasetSelect"></select>
+      <span id="pageCount" class="page-count"></span>
+    </div>
+    <button id="printBtn" class="btn" type="button">Print / Save as PDF</button>
+  </div>
+
+  <div id="pages"></div>
+
+  <!-- Pug templates compiled to client-side render functions; see scripts/build-templates.js -->
+  <script src="../dist/templates.js"></script>
+  <!-- Simulated backend data (two worker records) -->
+  <script src="../src/data/worker-progress.data.js"></script>
+  <!-- Shared, form-agnostic pagination + render engine -->
+  <script src="../src/js/paginate.js"></script>
+  <script src="../src/js/render.js"></script>
+  <!-- This page's wiring -->
+  <script src="../src/js/worker-progress.app.js"></script>
+</body>
+</html>

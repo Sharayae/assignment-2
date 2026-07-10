@@ -1,0 +1,13 @@
+{
+  "name": "wcb-assignment-2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pug-templated, backend-simulated, print-to-A4-PDF rebuild of the WCB Worker Progress Report and Medical & Travel Expense Request forms.",
+  "scripts": {
+    "build": "node scripts/build-templates.js",
+    "serve": "node scripts/serve.js"
+  },
+  "devDependencies": {
+    "pug": "^3.0.3"
+  }
+}

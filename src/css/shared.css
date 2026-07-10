@@ -1,0 +1,120 @@
+/* Shared design tokens, page shell, header/footer and print rules used by
+   BOTH forms. Anything specific to one form's content lives in that form's
+   own stylesheet instead. */
+
+:root {
+  --wcb-navy: #003366;
+  --muted: #666;
+  --page-bg: #d9d9d9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--page-bg);
+  padding: 20px 0 40px;
+  line-height: 1.4;
+  color: #000;
+}
+
+.link { color: #0066cc; text-decoration: underline; }
+
+/* ===== Toolbar: dataset switcher + print button (hidden on print) ===== */
+.toolbar {
+  width: 210mm;
+  max-width: calc(100% - 24px);
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.toolbar-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.toolbar label { font-weight: bold; }
+.toolbar select {
+  font-size: 13px;
+  padding: 6px 8px;
+  border: 1px solid #000;
+  background: #fff;
+}
+.toolbar .page-count { color: #555; font-size: 12px; }
+.btn {
+  padding: 8px 20px;
+  font-size: 13px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #fff;
+}
+.btn:hover { background: #f0f0f0; }
+a.back-link { font-size: 12px; color: var(--wcb-navy); text-decoration: none; }
+a.back-link:hover { text-decoration: underline; }
+
+/* ===== A4 page shell ===== */
+#pages { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+.doc-page {
+  width: 210mm;
+  height: 297mm;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+/* Column flexbox is what pins the footer to the true bottom of the page
+   regardless of how much content the current dataset produced - see
+   src/js/render.js for the rest of the explanation. */
+.doc-content-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15mm 15mm 12mm;
+}
+.doc-content { flex: 1 1 auto; overflow: hidden; }
+
+/* ===== Header ===== */
+.doc-header {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #000;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+.brand { display: flex; gap: 12px; align-items: flex-start; }
+.brand-logo { width: 90px; height: 60px; flex-shrink: 0; }
+.brand-address { font-size: 10px; font-weight: bold; line-height: 1.4; }
+.brand-title { text-align: right; }
+.brand-title h1 { font-size: 18px; color: #000; margin-bottom: 10px; }
+.badge-row { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+.badge { font-size: 11px; font-weight: bold; border: 1px solid #000; padding: 4px 8px; }
+
+/* ===== Footer ===== */
+.doc-footer {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  border-top: 1px solid #000;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+.footer-right { display: flex; gap: 16px; }
+.footer-page { color: #333; }
+
+/* ===== Print ===== */
+@media print {
+  @page { size: A4; margin: 0; }
+  body { background: #fff; padding: 0; }
+  .no-print { display: none !important; }
+  #pages { gap: 0; }
+  .doc-page { box-shadow: none; page-break-after: always; }
+  .doc-page:last-child { page-break-after: auto; }
+}

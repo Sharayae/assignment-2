@@ -1,0 +1,29 @@
+include ../mixins/form-controls.pug
+
+//- locals: mt = { status, providerType, lastTreatmentDate, lastTreatmentProvider,
+//-                nextTreatmentDate, nextTreatmentProvider, physioFrequency }
+section.section-box
+  +fieldBox('Select one:')
+    +optionLine([
+      { text: 'I am not continuing to receive medical treatment for my workplace injury.', checked: mt.status === 'notContinuing' },
+      { text: 'I am continuing to receive medical treatment for my workplace injury:', checked: mt.status === 'continuing', note: mt.status === 'continuing' ? mt.providerType : null }
+    ])
+    p.sublabel (Medical Provider Type)
+
+  +fieldBox('My last medical treatment was')
+    .inline-field
+      span.value-underline= mt.lastTreatmentDate || '—'
+      span.field-caption from
+      span.value-underline= mt.lastTreatmentProvider || '—'
+    p.sublabel (Date) (Medical Provider Name)
+
+  +fieldBox('My next medical treatment is')
+    .inline-field
+      span.value-underline= mt.nextTreatmentDate || '—'
+      span.field-caption from
+      span.value-underline= mt.nextTreatmentProvider || '—'
+    p.sublabel (Date) (Medical Provider Name)
+
+  +fieldBox('I am attending a Chiropractor or Physiotherapist')
+    +readonlyLine(mt.physioFrequency)
+    p.sublabel (Frequency)
