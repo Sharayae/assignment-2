@@ -1,0 +1,482 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Medical & Travel Expense Request
+
+    link(rel="stylesheet" href="/css/style.css")
+
+  body
+    .container
+
+      // Header Section
+      .header
+
+        .logo-section
+
+          .wcb-logo
+            svg(viewBox="0 0 150 100" xmlns="http://www.w3.org/2000/svg")
+              text(x="10" y="45" font-size="28" font-weight="bold" fill="#003366") WCB
+              circle(cx="85" cy="30" r="7" fill="#003366")
+              circle(cx="105" cy="30" r="7" fill="#003366")
+              path(
+                d="M 80 45 Q 80 55 95 60 Q 110 55 110 45"
+                fill="none"
+                stroke="#003366"
+                stroke-width="2"
+              )
+              text(
+                x="10"
+                y="75"
+                font-size="7"
+                fill="#003366"
+                font-weight="bold"
+              ) Workers Compensation
+
+              text(
+                x="15"
+                y="83"
+                font-size="7"
+                fill="#003366"
+                font-weight="bold"
+              ) Board of Manitoba
+
+          .contact-info
+            p
+              strong 333 Broadway
+            p Winnipeg, MB R3C 4W3
+            p Phone: 204-954-4321
+            p Toll Free: 1-855-954-4321
+            p www.wcb.mb.ca
+
+        .title-section
+          h1
+            | Medical & Travel Expense
+            br
+            | Request
+
+          .claim-number
+            label Claim No.
+            input.input-field(
+              type="text"
+              value="2042067"
+            )
+
+      // Worker Information
+      .worker-info
+        | Madeleine Wilson requested reimbursement for the following
+        | medical and/or travel expenses:
+
+      // Prescription Drugs Section
+      .section-heading Prescription Drugs
+
+      table.data-table
+        thead
+          tr
+            th(style="width:18%") Drug Name
+            th(style="width:15%") Prescription Date
+            th(style="width:15%") Date Purchased
+            th(style="width:35%") Healthcare Provider Name
+            th(style="width:17%") Paid Amount
+
+        tbody#prescriptionBody
+          tr
+            td
+              input.input-field(
+                type="text"
+                value="Naproxen"
+              )
+
+            td
+              input.input-field(
+                type="text"
+                value="February 28, 2024"
+              )
+
+            td
+              input.input-field(
+                type="text"
+                value="February 29, 2024"
+              )
+
+            td
+              input.input-field(
+                type="text"
+                value="Dr. Best"
+              )
+
+            td
+              input.input-field(
+                type="text"
+                value="$20.00"
+              )
+
+      button.add-row-btn(
+        onclick="addRow('prescriptionBody')"
+      ) + Add Row
+      // ==========================================
+// OVER-THE-COUNTER DRUGS
+// ==========================================
+
+.section-heading Over-the-Counter Drugs
+
+table.data-table
+  thead
+    tr
+      th(style="width:18%") Drug Name
+      th(style="width:15%") Date Purchased
+      th(style="width:12%") Paid Amount
+      th(style="width:28%") Seller's Name
+      th(style="width:27%") Reason for Purchasing
+
+  tbody#otcBody
+    tr
+      td
+        input.input-field(
+          type="text"
+          value="Advil"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="March 08, 2024"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="$8.00"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="Shoppers Drug Mart"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="Pain"
+        )
+
+button.add-row-btn(
+  onclick="addRow('otcBody')"
+) + Add Row
+
+
+// ==========================================
+// BANDAGES, BRACES OR OTHER MEDICAL SUPPLIES
+// ==========================================
+
+.section-heading Bandages, Braces or Other Medical Supplies
+
+table.data-table
+  thead
+    tr
+      th(style="width:15%") Item Purchased
+      th(style="width:13%") Date Purchased
+      th(style="width:12%") Was It Pre-Approved?
+      th(style="width:25%") Healthcare Provider Name
+      th(style="width:12%") Paid Amount
+      th(style="width:23%") Seller's Name
+
+  tbody#suppliesBody
+    tr
+      td
+        input.input-field(
+          type="text"
+          value="Tensor"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="February 28, 2024"
+        )
+
+      td
+        select.input-field
+          option
+          option(selected) Yes
+          option No
+
+      td
+        input.input-field(
+          type="text"
+          value="Dr. Best"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="$10.00"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="Shoppers DrugMart"
+        )
+
+button.add-row-btn(
+  onclick="addRow('suppliesBody')"
+) + Add Row
+// ==========================================
+// PARKING FOR MEDICAL APPOINTMENTS
+// ==========================================
+
+.section-heading Parking for Medical Appointments
+
+table.data-table
+  thead
+    tr
+      th(style="width:35%") Address of Healthcare Provider/Medical Facility
+      th(style="width:15%") Date
+      th(style="width:12%") Paid Amount
+      th(style="width:12%") Meter Used?
+      th(style="width:26%") Meter Number
+
+  tbody#parkingBody
+    tr
+      td
+        input.input-field(
+          type="text"
+          value="333 St Mary Ave, Winnipeg MB R3C4A5, Canada"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="March 28, 2024"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="$10.00"
+        )
+
+      td
+        select.input-field
+          option
+          option(selected) Yes
+          option No
+
+      td
+        input.input-field(
+          type="text"
+          value="12345"
+        )
+
+button.add-row-btn(
+  onclick="addRow('parkingBody')"
+) + Add Row
+
+
+
+// ==========================================
+// MILEAGE TO MEDICAL APPOINTMENTS
+// ==========================================
+
+.section-heading Mileage to Medical Appointments
+
+.info-box
+  p The WCB will generally reimburse only those transportation costs which are in excess of costs that would be incurred by the worker while travelling to and from work.
+
+table.data-table
+  thead
+    tr
+      th(style="width:18%") Appointment Date
+      th(style="width:28%") Address of Healthcare Provider/Medical Facility
+      th(style="width:28%") Address of Workplace
+      th(style="width:26%") Number of km (Round Trip)
+
+  tbody#mileageBody
+    tr
+      td
+        input.input-field(
+          type="text"
+          value="March 28, 2024"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="HSC, 820 Sherbrook St, Winnipeg MB R3C 4W3, Canada"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="WCB, 333 Broadway, Winnipeg MB R3C4W3, Canada"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="20km"
+        )
+
+button.add-row-btn(
+  onclick="addRow('mileageBody')"
+) + Add Row
+// ==========================================
+// BUS OR TAXI FARE
+// ==========================================
+
+.section-heading
+  | Bus or Taxi Fare for Medical Appointments
+  span.superscript *
+
+.note
+  | *Note: Pre-approval is required from your WCB representative to claim taxi fare(s).
+
+table.data-table
+  thead
+    tr
+      th(style="width:15%") Appointment Date
+      th(style="width:22%") Address of Starting Point
+      th(style="width:30%") Address of Healthcare Provider/Medical Facility
+      th(style="width:15%") Bus or Taxi (indicate one)
+      th(style="width:18%") Total Fare Paid
+
+  tbody#taxiBody
+
+    tr
+      td
+        input.input-field(
+          type="text"
+          value="March 28, 2024"
+        )
+
+      td
+        input.input-field(type="text")
+
+      td
+        input.input-field(
+          type="text"
+          value="HSC Winnipeg Women's Hospital, 665 William Ave, Winnipeg MB R3E0Z2, Canada"
+        )
+
+      td
+        select.input-field
+          option
+          option(selected) Bus
+          option Taxi
+
+      td
+        input.input-field(
+          type="text"
+          value="$3.00"
+        )
+
+    tr
+      td
+        input.input-field(
+          type="text"
+          value="March 27, 2024"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="25 Furby St, Winnipeg MB R3C2A2, Canada"
+        )
+
+      td
+        input.input-field(
+          type="text"
+          value="440 Edmonton St, Winnipeg MB R3B 2M4, Canada"
+        )
+
+      td
+        select.input-field
+          option Bus
+          option(selected) Taxi
+
+      td
+        input.input-field(
+          type="text"
+          value="$15.00"
+        )
+
+button.add-row-btn(
+  onclick="addRow('taxiBody')"
+) + Add Row
+
+
+// ==========================================
+// TOTAL AMOUNT
+// ==========================================
+
+.total-box
+  span Total Amount Requested
+  span#totalAmount $0.00
+
+
+// ==========================================
+// PRIVACY SECTION
+// ==========================================
+
+.privacy-section
+
+  .checkbox-container
+
+    input#privacyCheckbox(
+      type="checkbox"
+      checked
+    )
+
+    label(for="privacyCheckbox")
+      | I understand that the
+      a.link(href="#") Privacy Notice
+      |  applies to the personal information collected in this document.
+
+
+// ==========================================
+// FOOTER
+// ==========================================
+
+.footer
+
+  .footer-item
+    label Worker App ID:
+    input.footer-input(
+      type="text"
+      value="7125041"
+    )
+
+  .footer-item
+    label Submitted:
+    input.footer-input(
+      type="text"
+      value="March 28, 2024 20:43"
+    )
+
+.page-number
+  | Page 1 of 2
+
+
+// ==========================================
+// ACTION BUTTONS
+// ==========================================
+
+.action-buttons
+
+  button.btn(
+    onclick="submitForm()"
+  ) Submit
+
+  button.btn(
+    onclick="window.print()"
+  ) Print
+
+  button.btn(
+    onclick="resetForm()"
+  ) Reset
+
+
+script(src="/js/script.js")
